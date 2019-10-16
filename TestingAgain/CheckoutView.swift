@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct CheckoutView: View {
-    @EnvironmentObject var order: Order
     
     static let paymentTypes = ["Cash", "Credit Card", "iDine Points"]
 
@@ -29,10 +28,11 @@ struct CheckoutView: View {
     }
 }
 
+#if DEBUG
 struct CheckoutView_Previews: PreviewProvider {
-    static let order = Order()
     
     static var previews: some View {
-        CheckoutView().environmentObject(order)
+        CheckoutView()
     }
 }
+#endif
