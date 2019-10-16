@@ -20,3 +20,6 @@ Or if I change from DefaultPickerStyle to SegmentedPickerStyle, the crash doesn'
 
 Repro video:
 https://www.youtube.com/watch?v=7j2ffkyuSzM
+
+Open Radar:
+http://openradar.appspot.com/radar?id=5065201384685568
