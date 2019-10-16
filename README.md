@@ -16,3 +16,4 @@ Screen B: Checkout screen
     
 
 If I remove the ForEach and create directly the Text views, the crash doesn't happen.
+Or if I change from DefaultPickerStyle to SegmentedPickerStyle, the crash doesn't happen either.
