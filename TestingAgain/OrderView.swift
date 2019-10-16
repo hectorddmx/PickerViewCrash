@@ -10,10 +10,20 @@ import SwiftUI
 
 struct OrderView: View {
     
+    let instructions = """
+- Tap place order below, then:
+- Pick an item in a single Picker view
+- Press back to come back to this screen
+    
+The green ones will work OK.
+
+The red one will crash when we return to this screen after picking an item.
+"""
+    
     var body: some View {
         NavigationView {
             List {
-                Section {
+                Section(header: Text(instructions)) {
                     NavigationLink(destination: CheckoutView()) {
                         Text("Place Order")
                     }
@@ -25,11 +35,9 @@ struct OrderView: View {
     }
 }
 
-#if DEBUG
 struct OrderView_Previews: PreviewProvider {
     
     static var previews: some View {
         OrderView()
     }
 }
-#endif
