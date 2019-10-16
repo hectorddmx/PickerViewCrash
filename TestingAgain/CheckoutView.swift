@@ -8,7 +8,10 @@
 
 import SwiftUI
 
-enum DeliveryTypes: Int, CaseIterable {
+enum DeliveryTypes: Int, CaseIterable, Identifiable {
+    
+    var id: Int { rawValue }
+    
     case pickup
     case car
     case helicopter
@@ -29,9 +32,9 @@ struct CheckoutView: View {
     @State private var deliveryType: Int = DeliveryTypes.car.rawValue
     
     var deliveryOptions: some View {
-        ForEach(DeliveryTypes.allCases.indices, content: { index in
+        ForEach(DeliveryTypes.allCases.indices) { index in
             DeliveryTypes(rawValue: index)?.textView
-        })
+        }
     }
     
     var body: some View {
@@ -54,7 +57,7 @@ struct CheckoutView: View {
             
             
             // This one creates it's Picker Text's with a ForEach, it's using Default pickerStyle
-            // and it crashes...
+            // and it crashes... 😡
             Picker(selection: $deliveryType, label: Text("Delivery type:")) {
                 deliveryOptions
             }
