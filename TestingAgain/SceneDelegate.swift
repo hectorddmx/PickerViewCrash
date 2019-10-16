@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  TestingAgain
+//  Learn Swift UI
 //
-//  Created by Hector De Diego on 16/10/19.
+//  Created by Hector De Diego on 10/10/19.
 //  Copyright © 2019 dediego. All rights reserved.
 //
 
@@ -19,8 +19,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
-        // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView()
+        // Get the managed object context from the shared persistent container.
+        
+        let order = Order()
+        let newItem = MenuItem(
+            id: UUID(),
+            name: "Hey",
+            photoCredit: ":D",
+            price: 10,
+            restrictions: [],
+            description: "Cool"
+        )
+        order.add(item: newItem)
+
+        // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
+        // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
+        let contentView = OrderView().environmentObject(order)
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
@@ -57,6 +71,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+
+        // Save changes in the application's managed object context when the application transitions to the background.
     }
 
 
