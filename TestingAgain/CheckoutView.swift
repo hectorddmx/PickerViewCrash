@@ -43,7 +43,7 @@ struct CheckoutView: View {
             .pickerStyle(SegmentedPickerStyle())                
             .background(Color.green)
             
-            // This one is created on Text view at a time, but is using Default pickerStyle
+            // This one is created one Text view at a time, but is using Default pickerStyle
             Picker(selection: $deliveryType, label: Text("Delivery type:")) {
                 DeliveryTypes.pickup.textView
                 DeliveryTypes.car.textView
