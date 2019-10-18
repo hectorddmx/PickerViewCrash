@@ -1,5 +1,8 @@
 # Picker crash in SwiftUI
 
+_Edit: October 18, 2019, after testing with Xcode 11.2 beta 2, I see this crash fixed. I'll leave this repo up to check for regressions when the GM version of Xcode 11.2 is released._
+
+
 When I have the same setup as this repo, I can reproduce a crash when selecting an item in a Picker and then going back to the previous screen, but only when I have a ForEach to generate the Text items.
 
 ![https://i.imgur.com/r82MsN0.png](https://i.imgur.com/r82MsN0.png)
